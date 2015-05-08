@@ -4,53 +4,13 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-	<servlet>
-		<servlet-name>Tamer_Nasdaq</servlet-name>
-		<servlet-class>com.mta.javastock.Tamer_NasdaqServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Tamer_Nasdaq</servlet-name>
-		<url-pattern>/tamer_nasdaq</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>exercise02math</servlet-name>
-		<servlet-class>com.mta.javastock.Exercise02</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>exercise02math</servlet-name>
-		<url-pattern>/exercise02</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>exercise03math</servlet-name>
-		<servlet-class>com.mta.javastock.Exercise03</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>exercise03math</servlet-name>
-		<url-pattern>/exercise03</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>MyNewServlet</servlet-name>
-		<servlet-class>com.mta.javastock.MyNewServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>MyNewServlet</servlet-name>
-		<url-pattern>/MyNewServlet</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>stockDetails</servlet-name>
-		<servlet-class>com.mta.javastock.stockDetails</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>stockDetails</servlet-name>
-		<url-pattern>/stockDetails</url-pattern>
-	</servlet-mapping>
 		<servlet>
-		<servlet-name>PortfolioManager</servlet-name>
+		<servlet-name>PortfolioServlet</servlet-name>
 		<servlet-class>com.mta.javastock.servlet.PortfolioServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>PortfolioManager</servlet-name>
-		<url-pattern>/portfolio</url-pattern>
+		<servlet-name>PortfolioServlet</servlet-name>
+		<url-pattern>portfolioservlet</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

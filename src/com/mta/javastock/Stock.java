@@ -15,7 +15,9 @@ public class Stock {
 	private int recommendation;
 	private int stockQuantity;
 	
-	
+	/*
+	 * constructor 
+	 */
 	public Stock(String string, float f, float g, Date date) {
 		this.symbol = string;
 		this.ask = f;
@@ -50,6 +52,14 @@ public class Stock {
 	public String getHtmlDescription() {
 		String ret = "<b> Stock Symbol: </b>"+ getSymbol() + ",<b> Ask: </b>" + getAsk()+ ",<b> Bid: </b>" + getBid()+ ",<b> Date: </b>" + getDate().getMonth() + "/" + getDate().getDate() + "/" + (1900+ getDate().getYear())  ;
 		return ret;
+	}
+	/*
+	 * copy constructor 
+	 */
+	public Stock(Stock stock)
+	{
+		this(new String(stock.getSymbol()),new Float(stock.getAsk()),new Float(stock.getBid()),stock.getDate());
+		
 	}
 
 }
