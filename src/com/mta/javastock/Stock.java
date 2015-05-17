@@ -12,8 +12,8 @@ public class Stock {
 	private static final int HOLD = 3;
 	
 	private String symbol;
-	private Float ask;
-	private Float bid;
+	private float ask;
+	private float bid;
 	private Date date;
 	private int stockQuantity;
 	private ALGO_RECOMMENDATION recommendation;
@@ -33,7 +33,7 @@ public class Stock {
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
-	public Float getAsk() {
+	public float getAsk() {
 		return ask;
 	}
 	public void setAsk(Float ask) {
