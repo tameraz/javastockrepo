@@ -3,38 +3,34 @@ package com.mta.javastock.service;
 import java.util.Date;
 import com.mta.javastock.model.Portfolio;
 import com.mta.javastock.Stock;
+import java.util.Calendar;
 
 public class PortfolioManager {
 	
 	public Portfolio getPortfolio() {
-		Portfolio portfolio = new Portfolio();
-		portfolio.setTitle("Stock Portfolio");
+		Portfolio myPortfolio = new Portfolio();
+		myPortfolio.setTitle("Exercise 7 portfolio");	
+		myPortfolio.updateBalance(10000);
 		
-		Date date1 = new Date();
-		date1.setYear(114);
-		date1.setMonth(11);
-		date1.setDate(15);
 		
-		Date date2 = new Date();
-		date2.setYear(114);
-		date2.setMonth(11);
-		date2.setDate(15);
+		Calendar cal=Calendar.getInstance();
+		cal.set(2014, 11, 15);
+		Date date1=(Date) cal.getTime();
+		Date date2=(Date) cal.getTime();
+		Date date3=(Date) cal.getTime();
 		
-		Date date3 = new Date();
-		date3.setYear(114);
-		date3.setMonth(11);
-		date3.setDate(15);
+		Stock stock1=new Stock("PIH",10F,8.5F,date1);
+		Stock stock2=new Stock("AAL",30F,25.5F,date2);		
+		Stock stock3=new Stock("CAAS",20F,15.5F,date3);
 		
-		Stock stock = new Stock("PIH", 13.1f, 12.4f, date1);
-		portfolio.addStock(stock);
+		myPortfolio.buyStock(stock1, 20);
+		myPortfolio.buyStock(stock2, 30);
+		myPortfolio.buyStock(stock3, 40);
+
+		myPortfolio.sellStock("AAL",-1);
+		myPortfolio.removeStock("CAAS");
 		
-		stock = new Stock("AAL", 5.78f, 5.5f, date2);
-		portfolio.addStock(stock);
-		
-		stock = new Stock("CAAS", 32.2f, 31.5f, date3);
-		portfolio.addStock(stock);
-		
-		return portfolio;
+		return (myPortfolio);
 	}
 
 }

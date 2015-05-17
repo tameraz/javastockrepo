@@ -1,6 +1,9 @@
 package com.mta.javastock;
 
 import java.util.Date;
+import com.mta.javastock.model.Portfolio.ALGO_RECOMMENDATION;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 
 public class Stock {
 	private static final int BUY = 0;
@@ -12,8 +15,8 @@ public class Stock {
 	private Float ask;
 	private Float bid;
 	private Date date;
-	private int recommendation;
 	private int stockQuantity;
+	private ALGO_RECOMMENDATION recommendation;
 	
 	/*
 	 * constructor 
@@ -48,18 +51,41 @@ public class Stock {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+/* C'tors of Stock */
 	
-	public String getHtmlDescription() {
-		String ret = "<b> Stock Symbol: </b>"+ getSymbol() + ",<b> Ask: </b>" + getAsk()+ ",<b> Bid: </b>" + getBid()+ ",<b> Date: </b>" + getDate().getMonth() + "/" + getDate().getDate() + "/" + (1900+ getDate().getYear())  ;
-		return ret;
+	public Stock(Stock stock){
+		this.setSymbol(new String (stock.getSymbol()));
+		this.setAsk(stock.getAsk());
+		this.setBid(stock.getBid());
+		this.date=new Date(stock.getDate().getTime());
+		this.recommendation=stock.getRecommendation();
+		this.stockQuantity=stock.getStockQuantity();
 	}
-	/*
-	 * copy constructor 
-	 */
-	public Stock(Stock stock)
-	{
-		this(new String(stock.getSymbol()),new Float(stock.getAsk()),new Float(stock.getBid()),stock.getDate());
-		
+	public ALGO_RECOMMENDATION getRecommendation() {
+		return recommendation;
+	}
+	
+	public void setRecommendation(ALGO_RECOMMENDATION recommendation) {
+		this.recommendation = recommendation;
 	}
 
+	public int getStockQuantity() {
+		return stockQuantity;
+	}
+
+
+	public void setStockQuantity(int stockQuantity) {
+		this.stockQuantity = stockQuantity;
+	}
+	
+	public String getHtmlDescription(){
+		
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		String dateStr = df.format(getDate());
+
+		String ret= "<br>Stock symbol: </b>"+getSymbol()+" <b> ask: </b>"+getAsk()+"<b> bid: </b>"+getBid()+"<b> quantity: </b>"+getStockQuantity()+
+				"<b> date: </b>"+ dateStr;
+		return ret;
+	
+	}
 }
