@@ -7,10 +7,13 @@ import java.util.Calendar;
 
 public class PortfolioManager {
 	
-	public Portfolio getPortfolio() {
-		Portfolio myPortfolio = new Portfolio();
-		myPortfolio.setTitle("Exercise 7 portfolio");	
-		myPortfolio.updateBalance(10000);
+/* This class is a portfolio manager , it will execute methods of portfolio*/
+	
+	public Portfolio getPortfolio()
+	{
+		Portfolio Portfolio = new Portfolio();
+		Portfolio.setTitle("Exercise 7 portfolio");	
+		Portfolio.updateBalance(10000);
 		
 		
 		Calendar cal=Calendar.getInstance();
@@ -23,14 +26,14 @@ public class PortfolioManager {
 		Stock stock2=new Stock("AAL",30F,25.5F,date2);		
 		Stock stock3=new Stock("CAAS",20F,15.5F,date3);
 		
-		myPortfolio.buyStock(stock1, 20);
-		myPortfolio.buyStock(stock2, 30);
-		myPortfolio.buyStock(stock3, 40);
+		Portfolio.buyStock(stock1, 20);
+		Portfolio.buyStock(stock2, 30);
+		Portfolio.buyStock(stock3, 40);
 
-		myPortfolio.sellStock("AAL",-1);
-		myPortfolio.removeStock("CAAS");
+		Portfolio.sellStock("AAL",-1);
+		Portfolio.removeStock("CAAS");
 		
-		return (myPortfolio);
+		return (Portfolio);
 	}
 
 }

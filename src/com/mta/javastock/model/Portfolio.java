@@ -140,28 +140,22 @@ public class Portfolio {
 	}
 
    
-	public String getHtmlString() {
-		
-		String res = new String( "<h1>" + getTitle() + "</h1>" );
-		
-		for(int i = 0; i < portfolioSize ;i++) {
-			res += this.stocks[i].getHtmlDescription() + "<br>";
-		}
-		return res;
-	}
-	/*
-	 * copy constructor
-	 */
-	public Portfolio(Portfolio protfolio)
+   public String getHtmlString() 
 	{
-		this(new String(protfolio.getTitle()),protfolio.portfolioSize);
-		
-		Stock[] coppy = protfolio.getStocks();
-		for (int i = 0; i < protfolio.portfolioSize; i++) 
-		{
-			this.stocks[i] = new Stock(coppy[i]); 
-		}
-	
+			
+		String ret = new String( "<h1>" + getTitle() + "</h1>" );
+				
+			for(int i = 0; i < portfolioSize ;i++)
+			{
+					Stock current = this.stocks[i];
+					if (current != null){
+						ret = ret + current.getHtmlDescription()+"<br>";
+					}
+			}
+			ret += ("Total Portfolio Value :"+this.getTotalValue()+ "$, "+
+							"Total Stocks Value :"+this.getStocksValue()+"$, "+"Balance :"+this.balance+"$");
+				
+				return ret;
 	}
 	/*************************************************************************************/		 		
 	private void copyStocksArray(Stock[] oldStocksArray, Stock[] newStocksArray ){
